@@ -228,12 +228,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let raw = '', today = dayjs(), weight = 65;
   for (let i = 0; i < 10000; i += Math.random() > 0.2 ? 1 : 2) {
     weight += Math.random() * 0.5 * (Math.random() < 0.5 ? -1 : 1);
-    let content = today.subtract(i, 'days').format('YYYY-MM-DD') + '_' + weight.toFixed(2) + '_' + 'blablabla/';
-    if ((raw + content).length > 100000) {
-      console.log(raw);
-      raw = content;
-    }
-    else raw += content;
+    raw += today.subtract(i, 'days').format('YYYY-MM-DD') + '_' + weight.toFixed(2) + '_' + 'blablabla/';
   }
 
   records = formatRecords(raw);
